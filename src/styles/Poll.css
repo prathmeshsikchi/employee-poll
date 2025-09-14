@@ -1,0 +1,10 @@
+.VotesContainer {
+  width: 400px;
+  text-align: center;
+  padding: 10px 30px;
+  border: 1px solid #63b2ac;
+  background: #63b2ac;
+  color: white;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}

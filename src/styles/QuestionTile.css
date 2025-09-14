@@ -1,0 +1,27 @@
+.QuestionTileMainContainer {
+  box-shadow: 1px 2px 3px #e4e4e5;
+  width: 250px;
+  border: 1px solid #e4e4e5;
+  border-radius: 5px;
+}
+
+.UsernameArea {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-bottom: 1px solid #e4e4e5;
+}
+
+.ButtonContainer {
+  padding: 10px 20px;
+}
+
+.ShowButton {
+  width: 100%;
+  padding: 4px;
+  background: none;
+  border: 1px solid #67b656;
+  color: #67b656;
+  border-radius: 3px;
+  cursor: pointer;
+}

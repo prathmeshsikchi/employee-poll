@@ -1,0 +1,22 @@
+.AddQuestionArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.InputBox {
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 16px;
+  outline: none;
+}
+
+.AddQuestionForm {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+}
