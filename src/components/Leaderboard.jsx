@@ -18,7 +18,7 @@ export default function Leaderboard() {
     });
   }, []);
 
-  // console.log(allUsers);
+  console.log(allUsers);
 
   let tableRowElement = [];
   Object.entries(allUsers).forEach(([key, element]) => {

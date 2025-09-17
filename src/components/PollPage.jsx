@@ -2,10 +2,10 @@ import Header from "./Header";
 import Avtar from "../assets/avtar.png";
 import "../styles/PollPage.css";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { _saveQuestion, _saveQuestionAnswer } from "../_DATA";
+import { _getUsers, _saveQuestion, _saveQuestionAnswer } from "../_DATA";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { getQuestions } from "../features/authentication";
+import { getQuestions, updateUser } from "../features/authentication";
 
 export default function PollPage() {
   const { questionID } = useParams();
@@ -15,6 +15,7 @@ export default function PollPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [correct, setCorrect] = useState(false);
+  const user = useSelector((state) => state.user);
   console.log(state);
 
   const isLogIn = useSelector((state) => state.isLogged);
@@ -37,7 +38,12 @@ export default function PollPage() {
       _saveQuestionAnswer(obj).then((data) => {
         if (data === true) {
           alert("Vote Submitted");
-          navigate("/");
+          dispatch(getQuestions());
+          _getUsers().then((data) => {
+            console.log(data[user.id]);
+            dispatch(updateUser());
+            navigate("/");
+          });
         }
       });
     } else if (option === "Two") {

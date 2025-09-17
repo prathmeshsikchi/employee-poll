@@ -13,11 +13,13 @@ export default function HomePage() {
   let navigate = useNavigate();
   const [checked, setChecked] = useState(false);
 
+  console.log(user);
+
   let newQuestionElementArray = [];
   let answeredQuestionElementArray = [];
 
   Object.entries(questions).forEach(([key, element]) => {
-    console.log(element);
+    // console.log(element);
 
     if (user.answers.hasOwnProperty(key)) {
       const ele = (

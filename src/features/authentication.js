@@ -13,6 +13,11 @@ export const logIn = createAsyncThunk("login", async (data) => {
     return res;
 })
 
+export const updateUser = createAsyncThunk("updateUser", async (data) => {
+    const res = await _getUsers()
+    return res
+})
+
 export const getQuestions = createAsyncThunk("questions", async() => {
     const res = await _getQuestions()
     return res;
@@ -31,18 +36,26 @@ export const authenticateSlice = createSlice({
         builder.addCase(logIn.fulfilled, (state,action) => {
             const username = action.meta.arg.username
             const data = action.payload
-            console.log(data)
+            // console.log(data)
             if( data.hasOwnProperty(username) ){
                 if(data[username].password === action.meta.arg.password){
                     state.isLogged = true
                     state.user = data[username]
-                    console.log(state.isLogged)
+                    // console.log(state.isLogged)
                 }
             }
         })
 
         builder.addCase(getQuestions.fulfilled, (state, action) => {
             state.question = action.payload
+        })
+
+        builder.addCase(updateUser.fulfilled,(state, action)=>{
+            console.log("Entered inside update")
+            if(state.isLogged){
+                const data = action.payload
+                state.user = data[state.user.id]
+            }
         })
     }
 })

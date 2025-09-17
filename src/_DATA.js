@@ -173,6 +173,16 @@ export function _saveQuestion (question) {
         [formattedQuestion.id]: formattedQuestion
       }
 
+      console.log(users[question.author].questions)
+
+      users = {
+        ...users,
+        [question.author] : {
+          ...users[question.author],
+          questions : [...users[question.author].questions, formatQuestion.id]
+        }
+      }
+
       resolve(formattedQuestion)
     }, 1000)
   })

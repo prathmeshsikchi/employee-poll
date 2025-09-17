@@ -5,7 +5,7 @@ import { Navigate, Outlet, useLocation } from "react-router-dom";
 function ProtectedRoutes({ children }) {
   const isLogIn = useSelector((state) => state.isLogged);
   const location = useLocation();
-  console.log("redirected From Here");
+  // console.log("redirected From Here");
 
   if (!isLogIn) {
     return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
