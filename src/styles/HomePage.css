@@ -11,6 +11,14 @@
   flex: 1;
   /* border: 1px solid black; */
 }
+.ToggleButtonContainer {
+  display: flex;
+  gap: 10px;
+  font-size: 22px;
+  align-items: center;
+  justify-content: end;
+  margin-bottom: 10px;
+}
 
 .NewQuestionContainer,
 .DoneContainer {

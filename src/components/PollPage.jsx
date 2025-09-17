@@ -3,8 +3,9 @@ import Avtar from "../assets/avtar.png";
 import "../styles/PollPage.css";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { _saveQuestion, _saveQuestionAnswer } from "../_DATA";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { getQuestions } from "../features/authentication";
 
 export default function PollPage() {
   const { questionID } = useParams();
@@ -12,6 +13,7 @@ export default function PollPage() {
   const { state } = location;
   const userName = useSelector((state) => state.user.id);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [correct, setCorrect] = useState(false);
   console.log(state);
 
@@ -47,6 +49,7 @@ export default function PollPage() {
       _saveQuestionAnswer(obj).then((data) => {
         if (data === true) {
           alert("Vote Submitted");
+          dispatch(getQuestions());
           navigate("/");
         }
       });

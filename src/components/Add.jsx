@@ -2,8 +2,9 @@ import Header from "./Header";
 import "../styles/Add.css";
 import { useEffect, useState } from "react";
 import { data, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { _saveQuestion } from "../_DATA";
+import { getQuestions } from "../features/authentication";
 
 export default function Add() {
   const [optionOne, setOptionOne] = useState("");
@@ -11,6 +12,7 @@ export default function Add() {
   const userName = useSelector((state) => state.user.id);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const isLogIn = useSelector((state) => state.isLogged);
 
   function formSubmitted(formData) {
@@ -25,6 +27,7 @@ export default function Add() {
 
     _saveQuestion(obj).then((data) => {
       alert("Poll Posted Successfully");
+      dispatch(getQuestions());
       navigate("/");
       console.log(data);
     });
