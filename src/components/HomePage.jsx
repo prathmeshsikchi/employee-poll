@@ -46,7 +46,6 @@ export default function HomePage() {
 
   return (
     <div className="MainPage">
-      <Header selected="Home"></Header>
       <div className="Main">
         <div className="MainArea">
           <div className="NewQuestionContainer">

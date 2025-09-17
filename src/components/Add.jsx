@@ -37,7 +37,6 @@ export default function Add() {
 
   return (
     <div>
-      <Header selected="New"></Header>
       <div className="Main">
         <div className="MainArea">
           <div className="AddQuestionArea">

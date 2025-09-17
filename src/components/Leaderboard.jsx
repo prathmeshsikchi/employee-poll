@@ -59,8 +59,6 @@ export default function Leaderboard() {
 
   return (
     <div>
-      <Header selected="Leaderboard"></Header>
-
       <div className="Main">
         <div className="MainArea">
           <table className="LeaderboardTable">

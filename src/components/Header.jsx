@@ -5,10 +5,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { logOut } from "../features/authentication";
 import "../styles/Header.css";
 
-export default function Header(props) {
+export default function Header() {
   const user = useSelector((state) => state.user);
   let navigate = useNavigate();
-  const [selected, setSelected] = useState(props.selected);
+  const [selected, setSelected] = useState("Home");
   const dispatch = useDispatch();
 
   return (

@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 
 export default function Poll() {
-  const { productID } = useParams();
+  const { questionID } = useParams();
   const location = useLocation();
   const { state } = location;
 
@@ -26,7 +26,7 @@ export default function Poll() {
     (state.optionTwo.votes.length * 100) /
     (state.optionOne.votes.length + state.optionTwo.votes.length);
 
-  console.log(productID);
+  // console.log(productID);
   console.log(state);
 
   return (
