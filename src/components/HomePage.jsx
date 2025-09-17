@@ -1,16 +1,12 @@
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "../styles/HomePage.css";
-import Header from "./Header";
 import QuestionTile from "./QuestionTile";
 import Switch from "react-switch";
 
 export default function HomePage() {
-  const isLogIn = useSelector((state) => state.isLogged);
   const questions = useSelector((state) => state.question);
   const user = useSelector((state) => state.user);
-  let navigate = useNavigate();
   const [checked, setChecked] = useState(false);
 
   console.log(user);

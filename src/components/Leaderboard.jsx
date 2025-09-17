@@ -1,16 +1,10 @@
 import { useEffect, useState } from "react";
-import Header from "./Header";
 import "../styles/Leaderboard.css";
 import Avtar from "../assets/avtar.png";
 import { _getUsers } from "../_DATA";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 export default function Leaderboard() {
   const [allUsers, setAllUsers] = useState({});
-
-  let navigate = useNavigate();
-  const isLogIn = useSelector((state) => state.isLogged);
 
   useEffect(() => {
     _getUsers().then((data) => {

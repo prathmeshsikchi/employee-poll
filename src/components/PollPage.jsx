@@ -1,8 +1,7 @@
-import Header from "./Header";
 import Avtar from "../assets/avtar.png";
 import "../styles/PollPage.css";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { _getUsers, _saveQuestion, _saveQuestionAnswer } from "../_DATA";
+import { _getUsers, _saveQuestionAnswer } from "../_DATA";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getQuestions, updateUser } from "../features/authentication";
@@ -18,7 +17,6 @@ export default function PollPage() {
   const user = useSelector((state) => state.user);
   console.log(state);
 
-  const isLogIn = useSelector((state) => state.isLogged);
   useEffect(() => {
     if (state === null) {
       navigate("/404");
@@ -26,7 +24,7 @@ export default function PollPage() {
     } else {
       setCorrect(true);
     }
-  }, []);
+  }, [navigate, state]);
 
   function handleAnswerSubmit(option) {
     if (option === "One") {

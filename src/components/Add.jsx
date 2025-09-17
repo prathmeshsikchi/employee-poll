@@ -1,7 +1,6 @@
-import Header from "./Header";
 import "../styles/Add.css";
-import { useEffect, useState } from "react";
-import { data, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { _saveQuestion } from "../_DATA";
 import { getQuestions } from "../features/authentication";
@@ -13,7 +12,6 @@ export default function Add() {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const isLogIn = useSelector((state) => state.isLogged);
 
   function formSubmitted(formData) {
     setOptionOne("");

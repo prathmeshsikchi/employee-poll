@@ -1,15 +1,13 @@
-import Header from "./Header";
 import Avtar from "../assets/avtar.png";
 import "../styles/Poll.css";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function Poll() {
-  const { questionID } = useParams();
   const location = useLocation();
   const { state } = location;
 
+  const navigate = useNavigate();
   const [correct, setCorrect] = useState(false);
   useEffect(() => {
     if (state === null) {
@@ -18,10 +16,7 @@ export default function Poll() {
     } else {
       setCorrect(true);
     }
-  }, []);
-
-  const navigate = useNavigate();
-  const isLogIn = useSelector((state) => state.isLogged);
+  }, [navigate, state]);
 
   let optionOneVotePercent;
   let optionTwoVotePercent;
