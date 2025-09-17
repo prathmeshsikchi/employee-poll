@@ -1,48 +1,52 @@
 import { useState } from "react";
 import Avtar from "../assets/avtar.png";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { logOut } from "../features/authentication";
 import "../styles/Header.css";
 
 export default function Header() {
   const user = useSelector((state) => state.user);
   let navigate = useNavigate();
-  const [selected, setSelected] = useState("Home");
+  // const [selected, setSelected] = useState("Home");
   const dispatch = useDispatch();
 
   return (
     <div className="Header">
       <div className="NavigationContainer">
-        <Link to="/" className="Link">
-          <div
-            className="headerItems"
-            style={selected === "Home" ? { boxShadow: "0px 2px black" } : {}}
-            onClick={() => setSelected("Home")}
-          >
-            Home
-          </div>
-        </Link>
-        <Link to="/leadboard" className="Link">
-          <div
-            className="headerItems"
-            style={
-              selected === "Leaderboard" ? { boxShadow: "0px 2px black" } : {}
-            }
-            onClick={() => setSelected("Leaderboard")}
-          >
-            Leaderboard
-          </div>
-        </Link>
-        <Link to="/add" className="Link">
-          <div
-            className="headerItems"
-            style={selected === "New" ? { boxShadow: "0px 2px black" } : {}}
-            onClick={() => setSelected("New")}
-          >
-            New
-          </div>
-        </Link>
+        <NavLink to="/" className="Link">
+          {({ isActive }) => (
+            <div
+              className="headerItems"
+              style={isActive ? { boxShadow: "0px 2px black" } : {}}
+              // onClick={() => setSelected("Home")}
+            >
+              Home
+            </div>
+          )}
+        </NavLink>
+        <NavLink to="/leadboard" className="Link">
+          {({ isActive }) => (
+            <div
+              className="headerItems"
+              style={isActive ? { boxShadow: "0px 2px black" } : {}}
+              // onClick={() => setSelected("Leaderboard")}
+            >
+              Leaderboard
+            </div>
+          )}
+        </NavLink>
+        <NavLink to="/add" className="Link">
+          {({ isActive }) => (
+            <div
+              className="headerItems"
+              style={isActive ? { boxShadow: "0px 2px black" } : {}}
+              // onClick={() => setSelected("New")}
+            >
+              New
+            </div>
+          )}
+        </NavLink>
       </div>
       <div className="ProfileContainer">
         <div style={{ display: "flex", alignItems: "baseline" }}>

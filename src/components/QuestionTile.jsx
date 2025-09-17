@@ -3,10 +3,10 @@ import "../styles/QuestionTile.css";
 
 export default function QuestionTile(props) {
   const question = props.question;
-  console.log(question.author);
+  // console.log(question.author);
   const navigate = useNavigate();
   function ShowButtonClicked() {
-    console.log(props.questionType);
+    // console.log(props.questionType);
     if (props.questionType === "New") {
       navigate(`/pollpage/${question.id}`, { state: question });
     } else {

@@ -11,12 +11,6 @@ export default function HomePage() {
   const user = useSelector((state) => state.user);
   let navigate = useNavigate();
 
-  useEffect(() => {
-    if (!isLogIn) {
-      navigate("/login");
-    }
-  }, [isLogIn]);
-
   let newQuestionElementArray = [];
   let answeredQuestionElementArray = [];
 

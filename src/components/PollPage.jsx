@@ -18,14 +18,12 @@ export default function PollPage() {
   const isLogIn = useSelector((state) => state.isLogged);
   useEffect(() => {
     if (state === null) {
+      navigate("/404");
       setCorrect(false);
     } else {
       setCorrect(true);
     }
-    if (!isLogIn) {
-      navigate("/login");
-    }
-  }, [isLogIn]);
+  }, []);
 
   function handleAnswerSubmit(option) {
     if (option === "One") {
@@ -57,8 +55,6 @@ export default function PollPage() {
 
   return (
     <div>
-      <Header selected="None"></Header>
-
       {correct && (
         <div className="Main">
           <div className="MainArea">

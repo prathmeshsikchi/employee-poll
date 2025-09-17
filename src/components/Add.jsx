@@ -12,11 +12,6 @@ export default function Add() {
 
   const navigate = useNavigate();
   const isLogIn = useSelector((state) => state.isLogged);
-  useEffect(() => {
-    if (!isLogIn) {
-      navigate("/login");
-    }
-  }, [isLogIn]);
 
   function formSubmitted(formData) {
     setOptionOne("");

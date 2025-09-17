@@ -11,11 +11,6 @@ export default function Leaderboard() {
 
   let navigate = useNavigate();
   const isLogIn = useSelector((state) => state.isLogged);
-  useEffect(() => {
-    if (!isLogIn) {
-      navigate("/login");
-    }
-  }, [isLogIn]);
 
   useEffect(() => {
     _getUsers().then((data) => {
@@ -23,7 +18,7 @@ export default function Leaderboard() {
     });
   }, []);
 
-  console.log(allUsers);
+  // console.log(allUsers);
 
   let tableRowElement = [];
   Object.entries(allUsers).forEach(([key, element]) => {

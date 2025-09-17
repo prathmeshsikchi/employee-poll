@@ -3,11 +3,14 @@ import LoginLogo from "../assets/LoginLogo.png";
 import "../styles/LoginPage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getQuestions, logIn } from "../features/authentication";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const location = useLocation();
+  const from = location.state.from.pathname;
 
   const dispatch = useDispatch();
   const isLogIn = useSelector((state) => state.isLogged);
@@ -17,7 +20,7 @@ export default function LoginPage() {
   useEffect(() => {
     if (isLogIn) {
       dispatch(getQuestions());
-      navigate("/");
+      navigate(from);
     }
   }, [isLogIn]);
 

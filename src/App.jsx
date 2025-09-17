@@ -10,6 +10,7 @@ import PollPage from "./components/PollPage";
 import Poll from "./components/Poll";
 import NotFound from "./components/NotFound";
 import Layout from "./layout";
+import ProtectedRoutes from "./components/ProtectedRoutes";
 
 function App() {
   return (
@@ -17,12 +18,18 @@ function App() {
       <Routes>
         <Route path="login" element={<LoginPage></LoginPage>}></Route>
         <Route path="/" element={<Layout />}>
-          <Route path="" element={<HomePage></HomePage>}></Route>
-          <Route path="leadboard" element={<Leaderboard></Leaderboard>}></Route>
-          <Route path="pollpage/:questionID" element={<PollPage />}></Route>
-          <Route path="poll/:questionID" element={<Poll />}></Route>
+          <Route element={<ProtectedRoutes />}>
+            <Route path="" element={<HomePage></HomePage>}></Route>
+            <Route
+              path="leadboard"
+              element={<Leaderboard></Leaderboard>}
+            ></Route>
+            <Route path="pollpage/:questionID" element={<PollPage />}></Route>
+            <Route path="poll/:questionID" element={<Poll />}></Route>
+            <Route path="add" element={<Add></Add>}></Route>
+          </Route>
           <Route path="404" element={<NotFound />}></Route>
-          <Route path="add" element={<Add></Add>}></Route>
+          <Route path="*" element={<NotFound />}></Route>
         </Route>
       </Routes>
     </Provider>

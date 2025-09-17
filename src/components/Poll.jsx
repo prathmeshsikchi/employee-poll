@@ -12,11 +12,6 @@ export default function Poll() {
 
   const navigate = useNavigate();
   const isLogIn = useSelector((state) => state.isLogged);
-  useEffect(() => {
-    if (!isLogIn) {
-      navigate("/login");
-    }
-  }, [isLogIn]);
 
   const optionOneVotePercent =
     (state.optionOne.votes.length * 100) /
@@ -31,8 +26,6 @@ export default function Poll() {
 
   return (
     <div>
-      <Header selected="None"></Header>
-
       <div className="Main">
         <div className="MainArea">
           <div className="AddQuestionArea">
